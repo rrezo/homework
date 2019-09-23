@@ -4,10 +4,12 @@
 # otherwise if it is even it will print 4 symbols (JhonDipPetal->DipP)
 
 def strings_check(string):
-    if len(string) < 7:
+    if len(string) < 7 and len(string) % 2 == 0:
+        return 'Error'
+    elif len(string) % 2 == 0:
         return 'Error'
     else:
-         tab = (len(string) - 3)/2
+        tab = (len(string) - 3)/2
         substring = string[int(tab):int(-tab)]
         return substring
 
