@@ -4,13 +4,13 @@
 # otherwise if it is even it will print 4 symbols (JhonDipPetal->DipP)
 
 def strings_check(string):
-    if len(string) < 7 and len(string) % 2 == 0:
+    if len(string) < 7:
         return 'Error'
     elif len(string) % 2 == 0:
         return 'Error'
     else:
-        tab = (len(string) - 3)/2
-        substring = string[int(tab):int(-tab)]
+        tab = int((len(string) - 3) / 2)
+        substring = string[(tab):(-tab)]
         return substring
 
 print(strings_check('JhonDipPeta'))
@@ -53,14 +53,15 @@ print(symbol_rem('cat', 1))
 # Integer checker - checks if on of the words == 10 or their sum == 10
 
 def int_checker(int1, int2):
-    if (int1 == 10) or (int2 == 10):
+    if int1 == 10 or (int2 == 10):
         return True
-    elif (int1 + int2) == 10:
+    elif int1 + int2 == 10:
         return True
     else:
         return False
 
 print(int_checker(-5, 15))
+
 
 
 
