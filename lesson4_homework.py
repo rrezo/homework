@@ -29,3 +29,25 @@ def var_remover(string, index):
 
 print(var_remover(test, 5))
 
+
+
+# Domain extractor - finds a domain in the string and prints it out
+
+def domain_ext(string):
+    domain_name = string.split('//')[-1].split('www.')[-1].split('/')[0]
+    return domain_name
+
+print(domain_ext('https://www.google.com/doodles/'))
+print(domain_ext('https://realpython.com/courses/python-thonny/'))
+
+
+
+# Random number - returns True if user guesses the random number
+
+import random
+def random_number(user_number):
+    number = random.randint(0, 10)
+    print(number)
+    return (number is int(user_number))
+
+print(random_number(1))
