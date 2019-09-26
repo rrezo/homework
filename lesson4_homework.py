@@ -1,3 +1,5 @@
+import random
+
 # String remover - removes string by its index
 
 test = 'test1, test2, test3, test4, test5'
@@ -44,10 +46,9 @@ print(domain_ext('https://realpython.com/courses/python-thonny/'))
 
 # Random number - returns True if user guesses the random number
 
-import random
 def random_number(user_number):
     number = random.randint(0, 10)
     print(number)
-    return (number is int(user_number))
+    return (number is user_number))
 
 print(random_number(1))
