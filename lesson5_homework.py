@@ -53,3 +53,30 @@ while num != 1:
         num = (num * 3) + 1
         print(num)
 
+
+int_list = []
+number = 0
+
+# Square number generator
+
+for i in range(0, 100):
+    i = (i + 1)**2
+    int_list.append(i)
+
+print(int_list)
+
+
+# Cars list creator
+
+cars_list = []
+
+while True:
+    car_name = input('Input a car name (or press q to quit): ')
+    if car_name == 'q':
+        break
+    cars_list.append(car_name)
+
+print('Your list is: ' + str(cars_list))
+
+
+
