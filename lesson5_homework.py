@@ -6,9 +6,8 @@ symbol = '!'
 def symbol_remover(sentence, symbol):
     new_sentence = ''
     for char in sentence:
-        if char == symbol:
-            continue
-        new_sentence += char
+        if char != symbol:
+            new_sentence += char
     return new_sentence
 
 print(symbol_remover(sentence, symbol))
@@ -66,7 +65,7 @@ for i in range(0, 100):
 print(int_list)
 
 
-Cars list creator
+# Cars list creator
 
 cars_list = []
 
