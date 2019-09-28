@@ -9,7 +9,7 @@ def symbol_remover(sentence, symbol):
         if char == symbol:
             continue
         new_sentence += char
-    return(new_sentence)
+    return new_sentence
 
 print(symbol_remover(sentence, symbol))
 
@@ -22,15 +22,15 @@ name = 'Kate'
 
 def name_finder(names, name):
     if name not in names:
-        print('Not found')
+        return 'Not found'
     else:
         if names.index(name) % 2 == 0:
-            print("It's all good")
+            return "It's all good"
         else:
             names.remove(name)
-            print(names)
+            return names
 
-name_finder(names, name)
+print(name_finder(names, name))
 
 # Lis sum checker - removes numbers from the list until sum < 200
 
@@ -66,7 +66,7 @@ for i in range(0, 100):
 print(int_list)
 
 
-# Cars list creator
+Cars list creator
 
 cars_list = []
 
@@ -77,6 +77,7 @@ while True:
     cars_list.append(car_name)
 
 print('Your list is: ' + str(cars_list))
+
 
 
 
