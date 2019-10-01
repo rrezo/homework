@@ -51,3 +51,18 @@ print(wrap('ABCDEFGHIJKLIMNOQRSTUVWXYZ', 4))
 # из условия if не был произведен при помощи команды break.
 
 # Custom split
+
+def custom_split(string, delimiter):
+    new_list = []
+    new_string = ''
+    for ch in string:
+        if ch != delimiter:
+            new_string += ch
+        else:
+            new_list.append(new_string)
+            new_string = ''
+
+    return new_list
+
+
+print(custom_split('We live inside a dream', ' '))
