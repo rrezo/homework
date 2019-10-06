@@ -11,14 +11,14 @@
 class Mathematician:
 
     def square_nums(self, list1):
-        return [self.num ** 2 for self.num in list1]
+        return [num ** 2 for num in list1]
 
     def remove_positives(self, list1):
-        return [self.num for self.num in list1 if self.num < 0]
+        return [num for num in list1 if num < 0]
 
     def filter_leaps(self, list1):
-        return [self.num for self.num in list1 if self.num % 4 == 0
-                or self.num % 100 == 0 and self.num % 400 == 0]
+        return [num for num in list1 if num % 4 == 0
+                or num % 100 == 0 and num % 400 == 0]
 
 
 m = Mathematician()
@@ -72,3 +72,4 @@ p.set_discount(25)
 assert p.price == 75
 
 print(p.price)
+
