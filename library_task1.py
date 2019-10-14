@@ -19,6 +19,7 @@
 
 
 class Library:
+
     def __init__(self, name, books=None, authors=None):
         self.name = name
         self.books = books or []
@@ -28,7 +29,7 @@ class Library:
         self.books.append(book)
 
     def group_by_author(self, author):
-        return [book for book in self.books if book.author == author]
+        return [book for book in self.books]
 
     def group_by_year(self, year):
         pass
@@ -44,6 +45,9 @@ class Book:
 
         Book.books_amount += 1
 
+    def __repr__(self):
+        return f"{self.name}"
+
 
 class Author:
     def __init__(self, name, country, birthday, books):
@@ -52,12 +56,35 @@ class Author:
         self.birthday = birthday
         self.books = books
 
+    def __repr__(self):
+        return f"{self.name}"
+
 
 lib1 = Library('Fiction')
 auth1 = Author('Orwell', 'UK', 'June 25th', ['1984', 'Animal farm'])
-book1 = Book('1984', 1960, auth1)
+book1 = Book('1984', 1940, auth1)
+
+auth2 = Author('Pushkin', 'RU', 'June 6th', 'Ruslan and Ludmila')
+book2 = Book('Ruslan and Ludmila', 1820, auth2)
+
+book3 = Book('Animal Farm', 1945, auth1)
 
 lib1.new_book(book1)
+lib1.new_book(book2)
+lib1.new_book(book3)
+
+print(lib1.group_by_author('Orwell'))
+print(lib1.group_by_author('Pushkin'))
+print(auth1.__dict__)
+print(auth2.__dict__)
+print()
+print(book1.__dict__)
+print(book2.__dict__)
+print(book3.__dict__)
+print()
 
 print(lib1.books)
-print(lib1.group_by_author('Orwell'))
+print(lib1.__dict__)
+
+
+
