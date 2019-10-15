@@ -28,11 +28,13 @@ class Library:
     def new_book(self, book):
         self.books.append(book)
 
+
     def group_by_author(self, author):
-        return [book for book in self.books]
+        return [book for book in self.books if book.author == author]
+
 
     def group_by_year(self, year):
-        pass
+        return [book for book in self.books if book.year == year]
 
 
 class Book:
@@ -49,6 +51,7 @@ class Book:
         return f"{self.name}"
 
 
+
 class Author:
     def __init__(self, name, country, birthday, books):
         self.name = name
@@ -57,7 +60,7 @@ class Author:
         self.books = books
 
     def __repr__(self):
-        return f"{self.name}"
+        return self.name
 
 
 lib1 = Library('Fiction')
@@ -73,18 +76,11 @@ lib1.new_book(book1)
 lib1.new_book(book2)
 lib1.new_book(book3)
 
-print(lib1.group_by_author('Orwell'))
-print(lib1.group_by_author('Pushkin'))
-print(auth1.__dict__)
-print(auth2.__dict__)
-print()
-print(book1.__dict__)
-print(book2.__dict__)
-print(book3.__dict__)
-print()
+print(lib1.group_by_author(auth1))
+print(lib1.group_by_year(1820))
 
-print(lib1.books)
-print(lib1.__dict__)
+
+
 
 
 

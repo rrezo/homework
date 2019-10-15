@@ -77,9 +77,9 @@ class TV(Gadget):  # channels, settings
         self.settings = settings
 
     def add_chanel(self, channel):
-        for self.channel in channel:
-            if self.channel not in self.channels:
-                self.channels.append(self.channel)
+        for chan in channel:
+            if chan not in self.channels:
+                self.channels.append(chan)
         else:
             print('Channel exists')
 
