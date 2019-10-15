@@ -36,6 +36,12 @@ class Library:
     def group_by_year(self, year):
         return [book for book in self.books if book.year == year]
 
+    def fetch_schoolbooks(self):
+        return [book for book in self.books if isinstance(book, Schoolbook)]
+
+    def fetch_magazine(self):
+        return [book for book in self.books if isinstance(book, Magazine)]
+
 
 class Book:
 
@@ -63,6 +69,16 @@ class Author:
         return self.name
 
 
+class Schoolbook(Book):
+    def __init__(self, name, year, author=None):
+        super().__init__(name, year, author)
+
+
+class Magazine(Book):
+    def __init__(self, name, year, author=None):
+        super().__init__(name, year, author)
+
+
 lib1 = Library('Fiction')
 auth1 = Author('Orwell', 'UK', 'June 25th', ['1984', 'Animal farm'])
 book1 = Book('1984', 1940, auth1)
@@ -76,9 +92,24 @@ lib1.new_book(book1)
 lib1.new_book(book2)
 lib1.new_book(book3)
 
+sch_book1 = Schoolbook('CompSci', 2019)
+sch_book2 = Schoolbook('English', 2018)
+
+mag1 = Magazine('Sport', 2017)
+mag2 = Magazine('Fashion', 2016)
+
+lib1.new_book(sch_book1)
+lib1.new_book(sch_book2)
+lib1.new_book(mag1)
+lib1.new_book(mag2)
+
 print(lib1.group_by_author(auth1))
 print(lib1.group_by_year(1820))
-
+print()
+print(lib1.books)
+print()
+print(lib1.fetch_schoolbooks())
+print(lib1.fetch_magazine())
 
 
 
