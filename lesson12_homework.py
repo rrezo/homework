@@ -70,8 +70,11 @@ class Bank:
         self.name = name
         self.accounts = accounts or []
 
+
     def open_account(self, client, bank, account):
-        if set(client.cards).isdisjoint(set(bank.accounts)):
+        checker = [name.bank for name in client.cards]
+        if bank not in checker:
+        # if set(client.cards).isdisjoint(set(bank.accounts)):
             new_account = Card(account, client, bank)
             self.accounts.append(new_account)
             Client.add_card(client, new_account)
@@ -82,6 +85,8 @@ class Bank:
     def close_account(self, card):
         self.accounts.remove(card)
 
+    def __repr__(self):
+        return self.name
 
 class ATM:
 
@@ -135,7 +140,7 @@ class Client:
 
 
     def show_total_balance(self):
-        return sum([sum.balance for sum in self.cards])
+        return sum([acc.balance for acc in self.cards])
 
     #   show_total_balance - returns the sum of money from all cards owned by the
     # client
@@ -224,3 +229,4 @@ print(f"Client1 cards: {client1.cards}")
 
 print(client2.show_total_balance())
 
+print([name.bank for name in client1.cards])
