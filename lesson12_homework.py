@@ -135,14 +135,14 @@ class Client:
 
 
     def show_total_balance(self):
-        # return [balance for balance in self.cards]
-        pass
+        return sum([sum.balance for sum in self.cards])
 
     #   show_total_balance - returns the sum of money from all cards owned by the
     # client
 
     def add_card(self, card):      # additional method to add cards to a client's
         self.cards.append(card)    # cards list
+
 
 
 bank1 = Bank("PrivatBank")
@@ -222,4 +222,5 @@ bank1.close_account(john_card1)
 print(f"Bank accounts: {bank1.accounts}")
 print(f"Client1 cards: {client1.cards}")
 
-# print(client1.show_total_balance())
+print(client2.show_total_balance())
+
