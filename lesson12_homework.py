@@ -73,7 +73,6 @@ class Bank:
     def open_account(self, client, bank, account):
         if set(client.cards).isdisjoint(set(bank.accounts)):
             new_account = Card(account, client, bank)
-            # TODO check if the client already has an acc
             self.accounts.append(new_account)
             Client.add_card(client, new_account)
             return new_account
@@ -83,7 +82,6 @@ class Bank:
     def close_account(self, card):
         self.accounts.remove(card)
 
-    # how to completely remove a variable?
 
 class ATM:
 
@@ -101,7 +99,6 @@ class ATM:
             print('ATM insufficient funds')
         else:
             card.balance -= sum
-
 
     def change_pin(self, card, old_pin, new_pin):
         if card.pin == old_pin:
@@ -218,7 +215,11 @@ john_card1.transfer_money(steve_card2, 500)
 print(john_card1.balance)
 print(steve_card2.balance)
 
-
-print(isinstance(john_card1.bank, Bank))
+print('\nClose account check:')
+print(f"Bank accounts: {bank1.accounts}")
+print(f"Client1 cards: {client1.cards}")
+bank1.close_account(john_card1)
+print(f"Bank accounts: {bank1.accounts}")
+print(f"Client1 cards: {client1.cards}")
 
 # print(client1.show_total_balance())
