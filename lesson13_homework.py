@@ -128,8 +128,8 @@ print(f"Function name: -> {square_all.__name__}")
 def stop_words(words: list):
     def decorator (func):
         @wraps(func)
-        def wrapper(args):
-            new_string = func(args)
+        def wrapper(*args):
+            new_string = func(*args)
             for word in words:
                 new_string = new_string.replace(word, '*')
             return new_string
@@ -181,3 +181,5 @@ print(create_slogan('0@cde'))
 print(f"Function name: -> {create_slogan.__name__}")
 assert create_slogan('johndoe05@gmail.com') is False
 assert create_slogan('S@SH05') == 'S@SH05 drinks pepsi in his brand new BMW!'
+
+
