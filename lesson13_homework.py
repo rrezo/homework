@@ -39,8 +39,7 @@ def stop_words(words: list):
         def wrapper(args):
             new_string = func(args)
             for word in words:
-                if word in new_string:
-                    new_string = new_string.replace(word, '*')
+                new_string = new_string.replace(word, '*')
             return new_string
         return wrapper
     return decorator
@@ -132,8 +131,7 @@ def stop_words(words: list):
         def wrapper(args):
             new_string = func(args)
             for word in words:
-                if word in new_string:
-                    new_string = new_string.replace(word, '*')
+                new_string = new_string.replace(word, '*')
             return new_string
         return wrapper
     return decorator
